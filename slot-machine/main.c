@@ -94,7 +94,11 @@ int main(void)
 				);
 
 				if (first_symbol == second_symbol && second_symbol == third_symbol)
+				{
 					player.balance += BET_MULTIPLIER * player.bet;
+
+					printf("You won $%0.2f!\n", BET_MULTIPLIER * player.bet);
+				}
 				else
 					printf("Better luck next spin!\n\n");
 
