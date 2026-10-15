@@ -41,5 +41,7 @@ int main(int argc, char *argv[])
 			default: putchar(user_input[i]); break;
 		}
 
+	putchar('\n');
+
 	return 0;
 }
