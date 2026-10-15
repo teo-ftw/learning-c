@@ -14,7 +14,6 @@ int main(int argc, char *argv[])
 	}
 
 	char user_input[MAX_INPUT_LENGTH + 1];
-	char leetspeak_result[MAX_INPUT_LENGTH + 1] = "";
 
 	if (strlen(argv[1]) > MAX_INPUT_LENGTH)
 	{
@@ -28,27 +27,19 @@ int main(int argc, char *argv[])
 	for (int i = 0; i < strlen(user_input); i++)
 		switch (toupper(user_input[i]))
 		{
-			case 'A': strcat(leetspeak_result, "4"); break;
-			case 'B': strcat(leetspeak_result, "8"); break;
-			case 'C': strcat(leetspeak_result, "["); break;
-			case 'D': strcat(leetspeak_result, ")"); break;
-			case 'E': strcat(leetspeak_result, "3"); break;
-			case 'G': strcat(leetspeak_result, "6"); break;
-			case 'I': strcat(leetspeak_result, "1"); break;
-			case 'O': strcat(leetspeak_result, "0"); break;
-			case 'S': strcat(leetspeak_result, "5"); break;
-			case 'T': strcat(leetspeak_result, "7"); break;
+			case 'A': putchar('4'); break;
+			case 'B': putchar('8'); break;
+			case 'C': putchar('['); break;
+			case 'D': putchar(')'); break;
+			case 'E': putchar('3'); break;
+			case 'G': putchar('6'); break;
+			case 'I': putchar('1'); break;
+			case 'O': putchar('0'); break;
+			case 'S': putchar('5'); break;
+			case 'T': putchar('7'); break;
 
-			default:
-				  char character_string[2];
-				  character_string[0] = user_input[i];
-
-				  strcat(leetspeak_result, character_string);
-
-				  break;
+			default: putchar(user_input[i]); break;
 		}
-
-	printf("%s\n", leetspeak_result);
 
 	return 0;
 }
