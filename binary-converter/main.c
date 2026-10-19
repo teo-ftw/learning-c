@@ -33,35 +33,35 @@ int raise_to_power(int base, int power)
 int main(int argc, char* argv[])
 {
 	/* CLI ARGUMENTS */
-	char* PROGRAM_NAME = argv[0];
-	char* FLAG_ARGUMENT = argv[1];
-	char* NUMBER_ARGUMENT = argv[2];
+	char* program_name = argv[0];
+	char* flag_argument = argv[1];
+	char* number_argument = argv[2];
 
 	/* FAIL CASES */
-	if (argc != 3 || FLAG_ARGUMENT[0] != '-')
+	if (argc != 3 || flag_argument[0] != '-')
 	{
-		print_program_usage(PROGRAM_NAME);
+		print_program_usage(program_name);
 
 		return 1;
 	}
 
-	for (int i = 0; i < strlen(NUMBER_ARGUMENT); i++)
-		if (!isdigit(NUMBER_ARGUMENT[i]))
+	for (int i = 0; i < strlen(number_argument); i++)
+		if (!isdigit(number_argument[i]))
 		{
-			print_program_usage(PROGRAM_NAME);
+			print_program_usage(program_name);
 
 			return 1;
 		}
 
 	/* HANDLE ARGUMENTS */
-	switch (FLAG_ARGUMENT[1])
+	switch (flag_argument[1])
 	{
 		case BINARY_FLAG:
 
-			for (int i = 0; i < strlen(NUMBER_ARGUMENT); i++)
-				if (NUMBER_ARGUMENT[i] != '0' && NUMBER_ARGUMENT[i] != '1')
+			for (int i = 0; i < strlen(number_argument); i++)
+				if (number_argument[i] != '0' && number_argument[i] != '1')
 				{
-					print_program_usage(PROGRAM_NAME);
+					print_program_usage(program_name);
 
 					return 1;
 				}
@@ -69,8 +69,8 @@ int main(int argc, char* argv[])
 			int power = 0;
 			int result = 0;
 
-			for (int i = strlen(NUMBER_ARGUMENT) - 1; i >= 0; i--)
-				if (NUMBER_ARGUMENT[i] == '1')
+			for (int i = strlen(number_argument) - 1; i >= 0; i--)
+				if (number_argument[i] == '1')
 				{
 					result += raise_to_power(2, power);
 					power++;
@@ -84,7 +84,7 @@ int main(int argc, char* argv[])
 
 		case DECIMAL_FLAG:
 
-			int decimal_number = atoi(NUMBER_ARGUMENT);
+			int decimal_number = atoi(number_argument);
 			int binary_number[32];
 			
 			if (decimal_number == 0)
@@ -109,7 +109,7 @@ int main(int argc, char* argv[])
 			break;
 
 		default:
-			print_program_usage(PROGRAM_NAME);
+			print_program_usage(program_name);
 			
 			return 1;
 	}
