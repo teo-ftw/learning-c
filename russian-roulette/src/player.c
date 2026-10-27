@@ -3,14 +3,6 @@
 #include <ctype.h>
 #include <string.h>
 
-#ifdef _WIN32
-	#include <windows.h>
-#elif defined(__linux__)
-	#include <unistd.h>
-#elif defined(__APPLE__)
-	#include <unistd.h>
-#endif
-
 #include "player.h"
 #include "console.h"
 
@@ -163,25 +155,7 @@ void play_alone(Player* player)
 				break;
 
 			case 2:
-				printf("Spinning the cylinder");
-
-				for (int i = 0; i < 4; i++)
-				{
-					#ifdef _WIN32
-						Sleep(250);
-					#elif defined(__linux__)
-						sleep(250);
-					#elif defined(__APPLE__)
-						sleep(250);
-					#endif
-
-					if (i == 3)
-						putchar(' ');
-					else
-						putchar('.');
-				}
-
-				printf("\n\n");
+				printf("Spinning the cylinder...\n\n");
 
 				for (int i = 0; i < 6; i++)
 					player->bullets[i] = ' ';
